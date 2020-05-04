@@ -4,6 +4,12 @@ from bs4 import BeautifulSoup
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import date
 
+# TO DO-
+# 1. EMAIL
+# 2. Different websites
+# 3. Graph
+# 4. GUI
+
 
 def get_prices(urls):
     dict = {}
@@ -51,16 +57,13 @@ if __name__ == "__main__":
 
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36"}
-
     scope = ['https://spreadsheets.google.com/feeds',
              'https://www.googleapis.com/auth/drive']
-
     creds = ServiceAccountCredentials.from_json_keyfile_name(
         "client_secret.json", scope)
     client = gspread.authorize(creds)
 
     urls = open("urls.txt").read().split("\n")
-
     dic = get_prices(urls)
     print(dic)
     add_to_sheets(dic, client)
