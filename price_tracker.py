@@ -18,7 +18,6 @@ csv_data = open("data.csv", "r").read()
 client.import_csv(sheet.id, csv_data)
 
 
-
 urls = open("urls.txt").read().split("\n")
 
 
