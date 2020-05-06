@@ -1,16 +1,17 @@
 import os
 import smtplib
 import time
+from collections import OrderedDict
 from datetime import date
 from email.message import EmailMessage
-from collections import OrderedDict
 
 import gspread
 import requests
 from bs4 import BeautifulSoup
 from oauth2client.service_account import ServiceAccountCredentials
 
-
+#     EMAIL_ID = "mohit.khanwale1@gmail.com"
+#     EMAIL_PASSWORD = "imubqnckgkuqcqsb"
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36"}
 scope = ['https://spreadsheets.google.com/feeds',
@@ -39,7 +40,7 @@ def get_prices(urls):
             price = int(price.split(".")[0])
 
         except Exception:
-            dict["Could not retrieve product details"] = "NA"
+            dict["Could not retrieve- "+url] = "NA"
             continue
 
         dict[prod_name] = price
@@ -102,20 +103,24 @@ def check_if_price_lower(dic, client):
     old_prices = sheet.row_values(row_count-1)
     del old_prices[0]
     new_prices = list(dic.values())
+    price_lowered = False
     message = ["Price dropped for following product(s)-"]
     num = 1
+    if len(old_prices) != len(new_prices):
+        return "Cannot compare!"
     for i in range(len(old_prices)):
-        if old_prices[i] and new_prices[i]:
+        if old_prices[i] and new_prices[i] and old_prices[i] != "NA" and new_prices[i] != "NA":
             if new_prices[i] < int(old_prices[i]):
+                price_lowered = True
                 diff = int(old_prices[i])-new_prices[i]
                 message.append(str(num) + ". " + prod_names[i] + "\nPrice dropped by- Rs " +
                                str(diff) + "\nCurrent Price- Rs " + str(new_prices[i]) + "\nShop here- " + urls[i])
                 num += 1
                 print("Price Dropped for product - "+prod_names[i])
-
-    msg = "\n\n".join(message)
-    send_email(msg)
-    print("Email sent to user!")
+    if price_lowered is True:
+        msg = "\n\n".join(message)
+        send_email(msg)
+        print("Email sent to user!")
 
 
 if __name__ == "__main__":
