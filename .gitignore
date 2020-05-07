@@ -2,4 +2,3 @@ myenv
 .vscode
 client_secret.json
 data.csv
-run_price_tracker.bat
