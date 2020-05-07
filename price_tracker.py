@@ -13,14 +13,15 @@ from oauth2client.service_account import ServiceAccountCredentials
 #     EMAIL_ID = "mohit.khanwale1@gmail.com"
 #     EMAIL_PASSWORD = "imubqnckgkuqcqsb"
 #BASE = "C:\\Users\\MohiT\\Desktop\\Python_Projects\\price_tracker\\"
+directory = os.path.dirname(os.path.realpath(__file__))
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36"}
 
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
-
+client_secret_path = os.path.join(directory, "client_secret.json")
 creds = ServiceAccountCredentials.from_json_keyfile_name(
-    "client_secret.json", scope)
+    client_secret_path, scope)
 
 shareable_sheet_link = "https://docs.google.com/spreadsheets/d/1-9eXx4mr4kexJ4CiMlkf4YP0QP4ixQZw6bJ2qQRP6w8/edit?usp=sharing"
 
@@ -130,7 +131,8 @@ def check_if_price_lower(dic, client):
 
 if __name__ == "__main__":
     client = gspread.authorize(creds)
-    urls = open("urls.txt").read().split("\n")
+    url_file_path = os.path.join(directory, "urls.txt")
+    urls = open(url_file_path).read().split("\n")
     diction = get_prices(urls)
     print(diction)
     add_to_sheets(diction, client)
