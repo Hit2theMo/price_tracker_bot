@@ -10,8 +10,6 @@ import requests
 from bs4 import BeautifulSoup
 from oauth2client.service_account import ServiceAccountCredentials
 
-#     EMAIL_ID = "mohit.khanwale1@gmail.com"
-#     EMAIL_PASSWORD = "imubqnckgkuqcqsb"
 #BASE = "C:\\Users\\MohiT\\Desktop\\Python_Projects\\price_tracker\\"
 directory = os.path.dirname(os.path.realpath(__file__))
 headers = {
