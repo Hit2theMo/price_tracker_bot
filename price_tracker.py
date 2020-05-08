@@ -145,7 +145,7 @@ def job():
     print("Google sheet updated Successfully!")
 
 
-schedule.every(2).minutes.do(job)
+schedule.every(4).hours.do(job)
 
 while True:
     schedule.run_pending()
