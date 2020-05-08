@@ -1,3 +1,4 @@
+import json
 import os
 import smtplib
 import time
@@ -10,20 +11,6 @@ import requests
 from bs4 import BeautifulSoup
 from oauth2client.service_account import ServiceAccountCredentials
 
-#BASE = "C:\\Users\\MohiT\\Desktop\\Python_Projects\\price_tracker\\"
-directory = os.path.dirname(os.path.realpath(__file__))
-headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36"}
-
-scope = ['https://spreadsheets.google.com/feeds',
-         'https://www.googleapis.com/auth/drive']
-client_secret_path = os.path.join(directory, "client_secret.json")
-creds = ServiceAccountCredentials.from_json_keyfile_name(
-    client_secret_path, scope)
-
-shareable_sheet_link = "https://docs.google.com/spreadsheets/d/1-9eXx4mr4kexJ4CiMlkf4YP0QP4ixQZw6bJ2qQRP6w8/edit?usp=sharing"
-
-
 # TO DO-
 # 1. --- DONE --- EMAIL
 # 2. Different websites
@@ -31,6 +18,24 @@ shareable_sheet_link = "https://docs.google.com/spreadsheets/d/1-9eXx4mr4kexJ4Ci
 # 4. GUI
 # 5. --- DONE --- Schedule Script
 # 6. --- DONE --- Add functionality to delete products
+
+#BASE = "C:\\Users\\MohiT\\Desktop\\Python_Projects\\price_tracker\\"
+#directory = os.path.dirname(os.path.realpath(__file__))
+#client_secret_path = os.path.join(directory, "client_secret.json")
+
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36"}
+
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive']
+
+json_file_url = "https://raw.githubusercontent.com/Hit2theMo/price_tracker_bot/master/sheets_api.json"
+json_file = requests.get(json_file_url)
+credentials = json.loads(json_file.text)
+creds = ServiceAccountCredentials.from_json_keyfile_dict(
+    credentials, scope)
+
+shareable_sheet_link = "https://docs.google.com/spreadsheets/d/1-9eXx4mr4kexJ4CiMlkf4YP0QP4ixQZw6bJ2qQRP6w8/edit?usp=sharing"
 
 
 def get_prices(urls):
@@ -129,8 +134,9 @@ def check_if_price_lower(dic, client):
 
 if __name__ == "__main__":
     client = gspread.authorize(creds)
-    url_file_path = os.path.join(directory, "urls.txt")
-    urls = open(url_file_path).read().split("\n")
+    #url_file_path = os.path.join(directory, "urls.txt")
+    urls_github = "https://raw.githubusercontent.com/Hit2theMo/price_tracker_bot/master/urls.txt"
+    urls = requests.get(urls_github).text.split("\n")
     diction = get_prices(urls)
     print(diction)
     add_to_sheets(diction, client)
