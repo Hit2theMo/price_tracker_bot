@@ -10,8 +10,7 @@ import requests
 from bs4 import BeautifulSoup
 from oauth2client.service_account import ServiceAccountCredentials
 
-#     EMAIL_ID = "mohit.khanwale1@gmail.com"
-#     EMAIL_PASSWORD = "imubqnckgkuqcqsb"
+
 BASE = "C:\\Users\\MohiT\\Desktop\\Python_Projects\\price_tracker\\"
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36"}
