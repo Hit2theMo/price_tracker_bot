@@ -145,6 +145,7 @@ def job():
     print("Google sheet updated Successfully!")
 
 
+# job()
 schedule.every(4).hours.do(job)
 
 while True:
