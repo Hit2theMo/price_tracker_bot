@@ -12,7 +12,7 @@ This Scraper is deployed on **Heroku** to run every few hours daily.
 ![image](https://user-images.githubusercontent.com/34605049/81412230-2f524f00-9161-11ea-865f-808ff8eecf63.png "Prices updated in Google Spreadsheet" )
 
 #### Sample Email sent to user-
-<img src="https://user-images.githubusercontent.com/34605049/81412687-d7681800-9161-11ea-87b4-0f2a4ee9bc10.png" height="50%" >
+<img src="https://user-images.githubusercontent.com/34605049/81412687-d7681800-9161-11ea-87b4-0f2a4ee9bc10.png" height="25%" >
 
 ## Installation
 
