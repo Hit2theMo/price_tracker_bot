@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "track-product-prices",
+  "private_key_id": "d49e0a944615f51fea044deeb9e14689e44da55f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCr5x8xP91QQxjv\nhZO4Fpv2d/GBxFUWmflaoRQpo8otbDTu/0eUbNIWvrMw/x8VU8OpFuAP5E5ztdhv\nGoKIKDMB6N6flZhH9tn943hSh6uicXEU9AeY4tIUBVnsODZTUf3ghM64HmZc9Zlx\nmAUpX52XMgUkuKEPZHjp63lomQwxL9q7MN/p4tw1hR9EIHDcLD06d5cfZtrIby/D\nM9j6+XVDXRDf+j2Dmk3feaBqarOk3WnsX/5rMI4Av/TqGptpLYcjmv5/Wi2Q6EWY\nUWKqNEGD8hK1QgfFd0Vg2b56Wl/Y5xHil5UL1kmsqTTY6m1ZSVq9BViKmS/+AFvV\nNT/mqzz7AgMBAAECggEAD0wZ8oAEacgOyAHTC2a3qk8yJqIaEFDTZ8U9zhbNPw2K\nCFqfPA4TBAMkXw/U7Ejv+HQYrFFcyd88y2ZIh2VMZLccWIcvbfgBnh5H7tAz7di6\nf2rX4jsNBssTHXpDG1cIiJpI6wmJgmw4o2srymq/01yYKJRlgMEoIWja/Pvhod7C\n+L5a3Y6yyLXBV+GyGX53UPW8hCdUXpRplhEd2n13rBhrkQQsdEFYLGniKwevt3JT\nw0LKT4P37i58uRo/nYefCQsyl7wlO6GG3Oneh9L7+osjdt4NlyC/+PGA9Qns9hv7\nuVT63oBoT/qPgGeHimmt0BpH/9AXeONCcege4/iYAQKBgQDVbX31PRBtFaPwuL/B\nX6CJoJqdjIJnsLXENWr8IzWE2nvYxbxqlsyoiJ46DG4qjoeNVm7hgX2vfKe8PICU\nx2IEHF9BI+MNAlCs60TLZc93jPRjRNMI8vEBhiCxiFuZmFPH5yUhoyJMQIJ/mcn3\namXGpEXeAyACM41icXsyv22uewKBgQDOMTI7RYK0VIflQSX0LM5jNY8geGLYq+HM\nBAJIJCx93GjIuEcQth44OZ613bq/NHIqTJyWqpB6sMMcmlUqde7Hefd0L5/+2tmB\nkUZh0MsplylRPRjDmVt2WRPrTB5Ko+nyTv5hsqfATXlBO053QKg4tx6j3/aTlgFm\nugA/5IqjgQKBgQCHlCaPw1rL8RNTuAkYLkctJnkR3FB6ziapncV4pmU5IBHMgtBO\nZb1c0myxM3RIVIKHpoCJgFj3QZjMWyLTYFVDh0J7fvCdMvtM3ae2Ddbdew1EglQN\nO0ceULY0EQsfZ0TRmGReGeOPzOsZY/iI024T4gcAIbwTqewGvVAlzLVAQQKBgQCl\n0Sp0QBI8sz4WP64mD2JqpkfT9PyJArEzQIYVPgIJtZcO1CNSbSMgVDYuS4JDAgpN\nug6zm7dU85H1Dqgu3WiJQqyd4y7n5VfFuu6++wpnCAlSK7AenNXQ9xHtx+kUXX1m\nP+CS8Pm2zJcWvnr7rCOceKdLYnEJfzjhQ/OvbjuQAQKBgCzqFwE5ZOKzLki2QMPr\n6JCnpy6gbXaS4yMqAQxx3vpw4so7uCCDTUwUXN4Pm1ZiOJGxywX9JqWqZPIDZm2D\nKQ9kJcnNIGnOM+4Vp1jg9ioKA3tLYtHYQlLMQUCTpumUxKXFKyhWL0Wi1mWdrtoL\nqlp6gNFchc2b6KmmRZXUZyWb\n-----END PRIVATE KEY-----\n",
+  "client_email": "track-prices@track-product-prices.iam.gserviceaccount.com",
+  "client_id": "118316949593933516524",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/track-prices%40track-product-prices.iam.gserviceaccount.com"
+}
