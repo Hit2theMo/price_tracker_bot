@@ -8,6 +8,7 @@ from email.message import EmailMessage
 
 import gspread
 import requests
+import schedule
 from bs4 import BeautifulSoup
 from oauth2client.service_account import ServiceAccountCredentials
 
@@ -103,7 +104,7 @@ def send_email(message):
         smtp.send_message(msg)
 
 
-def check_if_price_lower(dic, client):
+def check_if_price_lower(dic, client, urls):
     sheet = client.open('product_prices').sheet1
     row_count = len(sheet.get_all_values())
     if row_count <= 2:
@@ -132,7 +133,7 @@ def check_if_price_lower(dic, client):
         print("Email sent to user!")
 
 
-if __name__ == "__main__":
+def job():
     client = gspread.authorize(creds)
     #url_file_path = os.path.join(directory, "urls.txt")
     urls_github = "https://raw.githubusercontent.com/Hit2theMo/price_tracker_bot/master/urls.txt"
@@ -140,6 +141,12 @@ if __name__ == "__main__":
     diction = get_prices(urls)
     print(diction)
     add_to_sheets(diction, client)
-    check_if_price_lower(diction, client)
+    check_if_price_lower(diction, client, urls)
     print("Google sheet updated Successfully!")
-    print("View the google sheet at-", shareable_sheet_link)
+
+
+schedule.every(2).minutes.do(job)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)  # wait one minute
