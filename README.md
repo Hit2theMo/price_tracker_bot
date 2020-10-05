@@ -1,5 +1,4 @@
-# Product Price Tracker - An Amazing Project
-
+# Product Price Tracker
 Python web scraper to Track Prices of different PC Parts from various Indian PC part websites like [MDcomputers](https://mdcomputers.in/), etc. \
 If price is lowered for any of the products, an Email is sent to the user with information of products whose prices are dropped. \
 All prices are also updated on a **Google spreadsheet** using the Sheets API.
